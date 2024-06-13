@@ -1,0 +1,141 @@
+.sidebar-container {
+    width: 230px;
+    height: 100%;
+    position: fixed;
+    left: -230px; /* Start off-screen */
+    top: 0;
+    transition: left 0.25s ease-in-out;
+}
+
+.sidebar-header {
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    gap: 1rem;
+    background-color: transparent;
+}
+
+#current-tag {
+    color: white;
+    font-family: 'Diphylleia', serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    caret-color: transparent;
+}
+
+.sidebar-button {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: transparent;
+}
+
+.sidebar-button>svg {
+    height: 30px;
+    width: 30px;
+    fill: white;
+}
+
+.sidebar-button:hover {
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.sidebar-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+}
+
+#sidebar-type-container {
+    margin-top: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.note-type-container {
+    height: 55px;
+    width: 100%;
+    padding-bottom: 1px;
+    caret-color: transparent;
+}
+
+.note-type-container:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.note-type {
+    font-size: 40px;
+    height: 100%;
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.bullet {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 15px;
+    margin: 0;
+}
+
+.note-type .tagname {
+    margin-left: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Diphylleia', serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.note-type span p {
+    color: white;
+    text-decoration: none;
+}
+
+.note-count {
+    text-align: center;
+    height: 25px;
+    width: 35px;
+    display: inline-block;
+    position: absolute;
+    border-radius: 8px;
+    margin-top: 3px;
+    right: 10px;
+    font-size: 10px;
+}
+
+.note-count>p {
+    height: 25px;
+    width: 35px;
+    font-size: 20px;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    color: rgba(69, 68, 65, 0.895);
+}
+
+.sidebar-bottom {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    font-family: "Zilla Slab", serif;
+    bottom: 0;
+}
+
+.sidebar-bottom>p {
+    font-size: 1.25rem;
+}

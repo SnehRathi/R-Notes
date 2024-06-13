@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Notes Section CSS */
+.notes-section {
+    padding: 20px;
+}
+
+.add-search-etc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.add-search-etc div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#add-note-button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    background-color: #087fff;
+    border: 0.25px solid white;
+    /* box-shadow: 0 0 2px 1.2px rgba(0, 0, 0, 0.712); */
+    font-size: 1.25rem;
+    caret-color: transparent;
+}
+
+#add-note-button:hover {
+    cursor: pointer;
+    background-color: rgb(255, 112, 136);
+}
+
+#add-note-button.clicked {
+    background-color: #002f62;
+    box-shadow: none;
+}
+
+.notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.note {
+    flex: 1 1;
+    margin-bottom: 5px;
+    padding-bottom: 1rem;
+}
+
+.note-container {
+    border-radius: 8px;
+    padding: 10px 10px 30px;
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.555);
+    caret-color: transparent;
+    border: 1.5px solid transparent;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.note-container:hover {
+    cursor: default;
+    border-color: black;
+}
+
+.locked-note-container,
+.lock-note-form-container {
+    border-radius: 8px;
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.555);
+    background-color: rgba(0, 0, 0, 0.804);
+    caret-color: transparent;
+    border: 1.5px solid transparent;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+}
+
+.note-unlock-form,
+.note-lock-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: rgba(41, 41, 41, 0.65);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+}
+
+.note-lock-form {
+    padding: 10px;
+}
+
+.note-unlock-form input,
+.note-unlock-form button,
+.note-lock-form input {
+    border: none;
+    outline: none;
+    height: 1.6rem;
+    padding-left: 5px;
+    caret-color: black;
+    border-radius: 2.5px;
+    font-size: 1.15rem;
+}
+
+.note-lock-form input::placeholder {
+    font-size: 1rem;
+}
+
+.note-password-toggle-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    font-size: 1rem;
+    padding: 0.2rem;
+    margin-left: -30px;
+}
+
+.note-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.lock-note-form-container {
+    background-color: rgba(41, 41, 41, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.locking-note-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.locking-note-buttons button {
+    border: none;
+    outline: none;
+    height: 1.4rem;
+    padding: 4px 6px;
+    caret-color: transparent;
+    border-radius: 2.5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.locking-note-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#delete-note-button {
+    color: red;
+}
+
+
+
+/* Form for adding/editing note CSS  
+    Add note form */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1010;
+}
+
+.overlay-content {
+    background: rgb(164, 164, 164);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+}
+
+.title-input {
+    background-color: white;
+    padding: 10px;
+    position: relative;
+}
+
+.title-input:focus {
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+}
+
+#note-content-editable {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: white;
+    color: black;
+    font-size: 1.1rem;
+    white-space: pre-wrap;
+    position: relative;
+}
+
+#note-content-editable:focus {
+    background-color: whitesmoke;
+}
+
+.editable-placeholder::before {
+    content: attr(data-placeholder);
+    color: #999;
+    pointer-events: none;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.editable-placeholder:empty::before {
+    display: block;
+}
+
+/* .editable-placeholder:focus:before -> to remove the placeholder when the div is focused*/
+.editable-placeholder:not(:empty)::before {
+    display: none;
+}
+
+.note-form-icons {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.icon-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    padding: 7px;
+}
+
+.icon-label:hover {
+    background-color: rgba(0, 0, 0, 0.304);
+    border-radius: 50%;
+}
+
+.icon-label::after {
+    content: attr(data-label);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.304);
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 4px;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.icon-label:hover::after {
+    opacity: 1;
+}
+
+.hidden-input {
+    display: none;
+}
+
+#save-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #087fff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    caret-color: transparent;
+}
+
+#save-button:hover {
+    background-color: #005bb5;
+}
+
+
+/* Notification.css */
+.notification {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: top 0.3s ease;
+    z-index: 1010;
+}
+
+.notification.show {
+    top: 20px;
+}
