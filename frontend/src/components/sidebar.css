@@ -83,6 +83,11 @@
     align-items: center;
 }
 
+.active-tag{
+    background-color: blue;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 .bullet {
     height: 15px;
     width: 15px;

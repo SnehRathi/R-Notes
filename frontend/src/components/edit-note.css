@@ -1,0 +1,161 @@
+/* Form for adding/editing note CSS  
+    Add note form */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1010;
+}
+
+.overlay-content {
+    background: rgb(164, 164, 164);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+}
+
+.title-input {
+    background-color: white;
+    padding: 10px;
+    position: relative;
+}
+
+.title-input:focus {
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+}
+
+#note-content-editable {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: white;
+    color: black;
+    font-size: 1.1rem;
+    white-space: pre-wrap;
+    position: relative;
+}
+
+#note-content-editable:focus {
+    background-color: whitesmoke;
+}
+
+.editable-placeholder::before {
+    content: attr(data-placeholder);
+    color: #999;
+    pointer-events: none;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.editable-placeholder:empty::before {
+    display: block;
+}
+
+/* .editable-placeholder:focus:before -> to remove the placeholder when the div is focused*/
+.editable-placeholder:not(:empty)::before {
+    display: none;
+}
+
+.note-form-icons {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.icon-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    padding: 7px;
+}
+
+.icon-label:hover {
+    background-color: rgba(0, 0, 0, 0.304);
+    border-radius: 50%;
+}
+
+.icon-label::after {
+    content: attr(data-label);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.304);
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 4px;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.icon-label:hover::after {
+    opacity: 1;
+}
+
+.hidden-input {
+    display: none;
+}
+
+#save-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #087fff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    caret-color: transparent;
+}
+
+#save-button:hover {
+    background-color: #005bb5;
+}
+
+
+/* Notification.css */
+.notification {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: top 0.3s ease;
+    z-index: 1010;
+}
+
+.notification.show {
+    top: 20px;
+}

@@ -52,7 +52,12 @@
     cursor: pointer;
 }
 
-
+.navbar-side-button-tag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
 .side-button {
     width: 45px;
     height: 45px;

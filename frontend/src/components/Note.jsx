@@ -137,17 +137,17 @@ function Note({ index, note, handleEditNote, deleteNote, setMessage }) {
                         <p className="note-content">{note.content}</p>
                     </div>
                     <div className="note-date-time-container">
-                        <div className="update-date-time">
-                            <p>{formattedDate}</p>
-                            <p>{formattedTime}</p>
-                        </div>
+                        <p>{formattedDate}</p>
+                        <p>{formattedTime}</p>
                     </div>
                     <div className="note-icons">
                         <button data-label="Tags"><FaTags /></button>
-                        <label htmlFor="attachment-input" style={{ cursor: 'pointer' }} data-label="Attachments">
-                            <MdWallpaper />
-                        </label>
-                        <input id="attachment-input" type="file" style={{ display: 'none' }} />
+                        <div>
+                            <label htmlFor="attachment-input" style={{ cursor: 'pointer' }} data-label="Attachments">
+                                <MdWallpaper />
+                            </label>
+                            <input id="attachment-input" type="file" style={{ display: 'none' }} />
+                        </div>
                         {isNoteLocked ? (
                             <button data-label="Unlock" onClick={() => setShowLockedNote(false)}>
                                 <MdLock />
@@ -163,7 +163,7 @@ function Note({ index, note, handleEditNote, deleteNote, setMessage }) {
                 </div>
             }
             {isLockingNote && (
-                <div className="overlay">
+                <div className="note-locking-overlay">
                     <div className="lock-note-form-container">
                         <form className="note-lock-form" onSubmit={handleLock}>
                             <div className="note-password-container">

@@ -3,6 +3,7 @@ import AddNoteForm from './AddNoteForm';
 import Notification from './Notification'; // Import the Notification component
 import Note from './Note';
 import './notes-section.css';
+import './edit-note.css';
 
 function NotesSection({ isSidebarOpen, user, currentTag, setTotalNotesCount }) {
     const [notes, setNotes] = useState([]);

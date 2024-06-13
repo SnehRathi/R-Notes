@@ -4,7 +4,7 @@ import './navigation.css';
 import Sidebar from "./Sidebar";
 import logo from "./images/logo.png";
 
-function Navigation({ user, isLoggedIn, logoutHandler,totalNotesCount,currentTag,setCurrentTag,isSidebarOpen,setIsSidebarOpen }) {
+function Navigation({ user, isLoggedIn, logoutHandler, totalNotesCount, currentTag, setCurrentTag, isSidebarOpen, setIsSidebarOpen }) {
     const [buttonClass, setButtonClass] = useState("side-button");
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
@@ -13,7 +13,7 @@ function Navigation({ user, isLoggedIn, logoutHandler,totalNotesCount,currentTag
         setIsSidebarOpen(!isSidebarOpen);
         setButtonClass("side-button side-button-clicked");
         setTimeout(() => {
-            setButtonClass("side-button side-button-hover");
+            setButtonClass("side-button");
         }, 150);
     }
 
@@ -44,16 +44,19 @@ function Navigation({ user, isLoggedIn, logoutHandler,totalNotesCount,currentTag
 
     return (
         <nav className="navbar">
-            <button
-                className={buttonClass}
-                onClick={handleisSidebarOpen}
-                onMouseOver={handleHover}
-                onMouseLeave={handleMouseOut}
-            >
-                <svg focusable="false" viewBox="0 0 24 24">
-                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                </svg>
-            </button>
+            <div className="navbar-side-button-tag">
+                <button
+                    className={buttonClass}
+                    onClick={handleisSidebarOpen}
+                    onMouseOver={handleHover}
+                    onMouseLeave={handleMouseOut}
+                >
+                    <svg focusable="false" viewBox="0 0 24 24">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                    </svg>
+                </button>
+                <div id="current-tag">{currentTag.charAt(0).toUpperCase() + currentTag.slice(1,)}</div>
+            </div>
             <div className="app-logo-div">
                 <a id="app" href="/">
                     <img src={logo} alt="logo" />

@@ -7,7 +7,7 @@ const colors = [
 ];
 
 const Tag = ({ tag, setCurrentTag, index, currentTag }) => {
-    const { _id, name, count } = tag;
+    const { name, count } = tag;
     const [isHovered, setIsHovered] = useState(false);
 
     const tagStyle = {
