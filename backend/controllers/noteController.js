@@ -153,7 +153,7 @@ exports.lockNote = async (req, res) => {
         note.passwordHash = passwordHash;
         await note.save();
 
-        res.status(200).json({ msg: 'Note locked successfully' });
+        res.status(200).json({ msg: 'Note locked successfully', note });
     } catch (error) {
         console.error(error.message);
         res.status(500).send('Server Error');

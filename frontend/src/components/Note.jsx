@@ -86,6 +86,7 @@ function Note({ index, note, handleEditNote, deleteNote, setMessage }) {
                 setIsNoteLocked(true);
                 setIsLockingNote(false);
                 setMessage(result.msg);
+                window.location.href = '/';
                 setTimeout(() => setMessage(''), 1000);
             } else {
                 console.log(result.msg || 'Error locking note');
@@ -191,8 +192,13 @@ function Note({ index, note, handleEditNote, deleteNote, setMessage }) {
                                 </span>
                             </div>
                             <div className="locking-note-buttons">
-                                <button type="submit">Lock Note</button>
-                                <button type="button" onClick={() => setIsLockingNote(false)}>Cancel</button>
+                                <button type="submit" id="locking-note-lock-button">Lock Note</button>
+                                <button type="button" id="locking-note-cancel-button" onClick={() => {
+                                    setIsLockingNote(false)
+                                    setPassword("")
+                                    setConfirmPassword("");
+                                }
+                                }>Cancel</button>
                             </div>
                         </form>
                     </div>

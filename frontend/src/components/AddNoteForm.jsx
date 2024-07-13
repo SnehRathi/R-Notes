@@ -8,12 +8,16 @@ function AddNoteForm({ onSave, initialNote }) {
     const contentRef = useRef(null);
     const titleRef = useRef(null);
 
+    const cleanContent = (content) => {
+        return content.replace(/\s+$/, ''); // Remove trailing whitespace and newlines
+    };
+
     const handleSave = (e) => {
         e.preventDefault();
         const updatedNote = {
             ...note,
-            content: contentRef.current.innerText,
-            title: titleRef.current.innerText,
+            content: cleanContent(contentRef.current.innerText),
+            title: titleRef.current.innerText.trim(),
         };
         onSave(updatedNote);
     };
@@ -43,13 +47,13 @@ function AddNoteForm({ onSave, initialNote }) {
 
     const handleContentChange = () => {
         if (contentRef.current) {
-            setNote(prevNote => ({ ...prevNote, content: contentRef.current.innerText }));
+            setNote(prevNote => ({ ...prevNote, content: cleanContent(contentRef.current.innerText) }));
         }
     };
 
     const handleTitleChange = () => {
         if (titleRef.current) {
-            setNote(prevNote => ({ ...prevNote, title: titleRef.current.innerText }));
+            setNote(prevNote => ({ ...prevNote, title: titleRef.current.innerText.trim() }));
         }
     };
 

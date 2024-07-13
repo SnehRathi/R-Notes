@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AddNoteForm from './AddNoteForm';
-import Notification from './Notification'; // Import the Notification component
+import Notification from './Notification';
 import Note from './Note';
 import './notes-section.css';
 import './edit-note.css';
@@ -39,6 +39,8 @@ function NotesSection({ isSidebarOpen, user, currentTag, setTotalNotesCount }) {
             console.error('Error deleting note:', error);
         }
     };
+
+
     useEffect(() => {
         const fetchNotes = async () => {
             if (user && user._id) {
@@ -172,7 +174,14 @@ function NotesSection({ isSidebarOpen, user, currentTag, setTotalNotesCount }) {
 
                 <div className="notes">
                     {notes.map((note, index) => (
-                        <Note key={index} index={index} note={note} handleEditNote={handleEditNote} deleteNote={handleDeleteNote} setMessage={setMessage} />
+                        <Note
+                            key={index}
+                            index={index}
+                            note={note}
+                            handleEditNote={handleEditNote}
+                            deleteNote={handleDeleteNote}
+                            setMessage={setMessage}
+                        />
                     ))}
                 </div>
             </section>

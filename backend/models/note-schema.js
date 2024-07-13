@@ -16,10 +16,12 @@ const noteSchema = new Schema({
     lockedNoteName: {
         type: String,
         trim: true,
-        required: function() {
+        required: function () {
             return this.isLocked; // lockedNoteName is required if the note is locked
-        }
+        },
+        default: "Locked Note"
     },
+
     content: {
         type: String,
     },
